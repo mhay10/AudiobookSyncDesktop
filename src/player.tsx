@@ -1,6 +1,14 @@
-import React from "react";
+import { useState } from "react";
 
 const Player = () => {
+    const [nowPlaying, setNowPlaying] = useState(null);
+	const [currentPosition, setCurrentPosition] = useState(0);
+	const [totalDuration, setTotalDuration] = useState(0);
+	
+	const formatSeconds = (seconds: number) => {
+        return new Date(seconds * 1000).toISOString().slice(11, 19);
+	}
+
 	return (
 		<div id="player-container">
 			<audio id="audio" preload="auto"></audio>
@@ -28,9 +36,9 @@ const Player = () => {
 					id="next"
 				/>
 			</div>
-			<p>Now Playing: {}</p>
+			<p>Now Playing: {nowPlaying}</p>
 			<p>
-				{} / {}
+				{formatSeconds(currentPosition)} / {formatSeconds(totalDuration)}
 			</p>
 		</div>
 	);

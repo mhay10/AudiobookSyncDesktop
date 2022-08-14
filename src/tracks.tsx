@@ -1,3 +1,7 @@
+interface TrackProps {
+	
+}
+
 const Tracks = () => {
 	return (
 		<div>
